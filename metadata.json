@@ -1,0 +1,8 @@
+{
+  "name": "Sanctuary",
+  "description": "Luxury Healing & Cannabis Retreat Platform featuring state & city destination discovery, 100% legal & medical status filters, transparent price breakdown, direct hotel concierge booking, verified reviews, and partner portal.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

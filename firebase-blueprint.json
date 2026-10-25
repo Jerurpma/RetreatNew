@@ -1,0 +1,151 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with authentication and role metadata",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "role": {
+          "type": "string",
+          "description": "User role: user or admin"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account creation timestamp"
+        }
+      },
+      "required": ["email", "role"]
+    },
+    "RetreatBooking": {
+      "title": "RetreatBooking",
+      "description": "Booked retreat itinerary and establishment contact for admin concierge fulfillment",
+      "type": "object",
+      "properties": {
+        "clientName": {
+          "type": "string"
+        },
+        "clientEmail": {
+          "type": "string"
+        },
+        "clientPhone": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "hotelName": {
+          "type": "string"
+        },
+        "hotelPhone": {
+          "type": "string"
+        },
+        "checkin": {
+          "type": "string"
+        },
+        "checkout": {
+          "type": "string"
+        },
+        "nights": {
+          "type": "number"
+        },
+        "guests": {
+          "type": "number"
+        },
+        "totalPrice": {
+          "type": "string"
+        },
+        "adminCalledAndBooked": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": ["clientName", "destination", "hotelName", "hotelPhone", "checkin", "checkout"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Verified retreat review with star rating",
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "stars": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "dest": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": ["author", "stars", "text"]
+    },
+    "Partner": {
+      "title": "Partner",
+      "description": "Subscribed partner displayed on partner portal ($50/mo or $500/yr)",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "bio": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "category", "plan"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and permissions"
+    },
+    "/retreat_bookings/{bookingId}": {
+      "schema": "RetreatBooking",
+      "description": "Booked retreat records for admin booking fulfillment"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Public retreat reviews and ratings"
+    },
+    "/partners/{partnerId}": {
+      "schema": "Partner",
+      "description": "Verified subscribed partners"
+    }
+  }
+}
